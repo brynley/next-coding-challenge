@@ -36,7 +36,8 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(25%, auto));
+  /* Fix: updated column to var to reduce repetition */
+  grid-template-columns: repeat(4, var(--grid-column));
   max-width: 100%;
   width: var(--max-width);
 }
@@ -98,6 +99,8 @@
 
   .grid {
     /* TODO Look up how to make a single column list*/
+    /* Fix: Removed repeat for mobile, updated column to var to reduce repetition */
+    grid-template-columns: var(--grid-column);
     margin-bottom: 120px;
     max-width: 320px;
     text-align: center;
@@ -163,5 +166,7 @@
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
     /* TODO Look up how to make a 2 column list*/
+    /* Fix: updated the repeat value for tablet and smaller desktop to 2, updated column to var to reduce repetition  */
+    grid-template-columns: repeat(2, var(--grid-column));
   }
 }
