@@ -11,7 +11,7 @@ export default function BasketList() {
   const { items, totalItems } = useBasket()
   return (
     <>
-      <Link className={styles.basket} href='/checkout'>Basket: {totalItems} items</Link>
+      <Link className={styles.basket} href='/checkout'>Basket: {totalItems} item{totalItems === 1 ? '' : 's'}</Link>
       {!!items?.length && items.map((item) => (
         <BasketItem key={item.name} name={item.name} quantity={item.quantity} />
       ))}
