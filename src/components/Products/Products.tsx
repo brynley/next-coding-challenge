@@ -4,20 +4,17 @@ import styles from '@/app/page.module.css';
 
 import useBasket from '@/hooks/useBasket'
 
-const products = [
-  { name: 'Item 1', copy: 'Foo'},
-  { name: 'Item 2', copy: 'Bar'},
-  { name: 'Item 3', copy: 'Baz'},
-  { name: 'Item 4', copy: 'Qux'},
-];
+import type { TProducts } from '@/types/products.types'
 
-export default function Products() {
+import Product from './components/Product'
+
+export default function Products({ products }: { products: TProducts }) {
   const { updateItem } = useBasket()
 
   return (
     <div className={styles.grid}>
       {products.map((product, index) => {
-        return <button key={`${product.name.replace(' ', '-').toLowerCase()}-${index}`} className={styles.card} onClick={() => updateItem(product.name)} aria-label={`Add ${product.name} to basket`}><h2>{product.name} <span>-&gt;</span></h2><p>{product.copy}</p></button>
+        return <Product key={`${product.name.uk.replace(' ', '-').toLowerCase()}-${index}`} product={product} updateBasket={() => updateItem(product.name.uk)} />
       })}
     </div>
   )

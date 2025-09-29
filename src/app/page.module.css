@@ -7,6 +7,13 @@
   min-height: 100vh;
 }
 
+.main h1 {
+  text-align: left;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 1rem 0;
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
@@ -59,7 +66,8 @@
   transition: transform 200ms;
 }
 
-.card h2 {
+.card h2,
+.card h3 {
   font-weight: 600;
   margin-bottom: 0.7rem;
 }
@@ -93,6 +101,9 @@
 
 /* Mobile */
 @media (max-width: 700px) {
+  .main h1 {
+    text-align: center;
+  }
   .content {
     padding: 4rem;
   }
