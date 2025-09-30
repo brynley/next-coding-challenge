@@ -13,5 +13,5 @@ export async function GET() {
     console.error('Error fetching more products:', error);
 
     return NextResponse.json({ products: [] }, { status: 500 });
-  }
-}
+  };
+};

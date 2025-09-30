@@ -1,6 +1,6 @@
 import styles from '@/app/page.module.css';
 
-import type { IProduct } from '@/types/products.types'
+import type { IProduct } from '@/types/products.types';
 
 export default function Product({ product, updateBasket }: { product: IProduct, updateBasket: () => void }) {
   return (
@@ -9,5 +9,5 @@ export default function Product({ product, updateBasket }: { product: IProduct, 
       <h3>£{product.price.gbp}</h3>
       <p>{product.stock} left in stock</p>
     </button>
-  )
-}
+  );
+};

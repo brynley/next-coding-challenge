@@ -28,11 +28,11 @@ export default function Products({ products }: { products: TProducts }) {
         console.error('Error fetching more products:', error);
       } finally {
         setLoading(false);
-      }
-    }
+      };
+    };
 
     getMoreProducts();
-  }, [])
+  }, []);
 
 
   return (
@@ -49,5 +49,5 @@ export default function Products({ products }: { products: TProducts }) {
         <p>Loading more products...</p>
       )}
     </>
-  )
-}
+  );
+};

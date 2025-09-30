@@ -1,15 +1,15 @@
-import { useContext } from 'react'
+import { useContext } from 'react';
 
-import { BasketContext } from '../../context/Basket'
+import { BasketContext } from '../../context/Basket';
 
 const useBasket = () => {
-  const context = useContext(BasketContext)
+  const context = useContext(BasketContext);
 
   if (context === undefined) {
-    throw new Error('useBasket must be used within BasketProvider')
-  }
+    throw new Error('useBasket must be used within BasketProvider');
+  };
   
-  return context
+  return context;
 }
 
-export default useBasket
+export default useBasket;
