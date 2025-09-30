@@ -1,28 +1,30 @@
-name: Deploy Vercel Preview
+# NOTE: Ran out of time to correctly set up Vercel deployment, leaving here to outline how I approached it
 
-on:
-  push:
-    branches:
-      - '**'
+# name: Deploy Vercel Preview
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+# on:
+#   push:
+#     branches:
+#       - '**'
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-          cache: 'yarn'
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout code
+#         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: yarn install
+#       - name: Setup Node
+#         uses: actions/setup-node@v3
+#         with:
+#           node-version: '20'
+#           cache: 'yarn'
 
-      - name: Build project
-        run: yarn build
+#       - name: Install dependencies
+#         run: yarn install
 
-      - name: Deploy to Vercel (Preview)
-        run: npx vercel --token=${{ secrets.VERCEL_TOKEN }}
+#       - name: Build project
+#         run: yarn build
+
+#       - name: Deploy to Vercel (Preview)
+#         run: npx vercel --token=${{ secrets.VERCEL_TOKEN }}

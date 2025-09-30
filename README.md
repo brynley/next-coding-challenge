@@ -1,4 +1,14 @@
-# Michael's NextJS Coding Challenge
+# Brynley's NextJS Coding Challenge
+
+## Notes for reviewer
+Additions I would've liked to have made:
+- Adding localisation, I was attempting creating dynamic routing using `[locale]` in the app folder structure
+  - This is how I would have implemented, but sadly ran out of time
+- Adding more granular unit testing
+  - Testing each component with it's own unit tests
+- Adding accessibility improvements
+- Styling changes to the checkout page
+- Adding total cost of basket and total cost of multiples of item added to basket
 
 ## The Challenge:
 Some newb has made a mess of this code. There are TODOs that need finishing off, broken and questionable tests and the code itself is inefficient.  
