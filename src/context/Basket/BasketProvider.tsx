@@ -4,16 +4,13 @@ import { useState } from 'react';
 
 import { BasketContext } from './BasketContext';
 
-import type { TBasketContext, TItem } from './BasketContext'
+import type { TBasketContext, TItem } from './BasketContext';
 
 export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
-  const [items, setItems] = useState<TBasketContext['items']>([])
+  const [items, setItems] = useState<TBasketContext['items']>([]);
 
   const updateItem = (productName: TItem['name']) => {
-    console.log('items :>> ', items);
     const existingCartItem = items.find(item => item.name === productName);
-
-    // Check if the existingCartItem returns an object with the expected field
 
     setItems((prevItems) => {
       if (existingCartItem) {
@@ -27,8 +24,8 @@ export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const totalItems = items.reduce((total, item) => {
-    return total + item.quantity
+    return total + item.quantity;
   }, 0)
 
-  return <BasketContext.Provider value={{items, updateItem, totalItems }}>{children}</BasketContext.Provider>
-}
+  return <BasketContext.Provider value={{items, updateItem, totalItems }}>{children}</BasketContext.Provider>;
+};

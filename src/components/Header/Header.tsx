@@ -1,6 +1,6 @@
-import Link from 'next/link'
+import Link from 'next/link';
 
-import BasketList from "../BasketList"
+import BasketList from "../BasketList";
 
 import styles from '@/app/page.module.css';
 
@@ -14,5 +14,5 @@ export default function Header() {
         <BasketList />
       </div>
     </div>
-  )
-}
+  );
+};
