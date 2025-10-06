@@ -29,3 +29,5 @@ export const BasketProvider = ({ children }: { children: React.ReactNode }) => {
 
   return <BasketContext.Provider value={{items, updateItem, totalItems }}>{children}</BasketContext.Provider>;
 };
+
+export default BasketProvider;

@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import styles from '@/app/page.module.css';
 
 import useBasket from '@/hooks/useBasket';
+import useLocale from '@/hooks/useLocale/useLocale';
 
 import type { TProducts } from '@/types/products.types';
 
@@ -13,6 +14,7 @@ export default function Products({ products }: { products: TProducts }) {
   const [loading, setLoading] = useState(true);
   const [moreProducts, setMoreProducts] = useState<TProducts>([]);
   const { updateItem } = useBasket();
+  const { locale } = useLocale();
 
   useEffect(() => {
     async function getMoreProducts() {
@@ -22,6 +24,8 @@ export default function Products({ products }: { products: TProducts }) {
         if (!res?.ok) throw new Error(`Failed to fetch more products, status: ${res.status}`);
 
         const { products: newProducts } = await res.json();
+
+        console.log('newProducts :>> ', newProducts);
 
         setMoreProducts(newProducts);
       } catch (error) {
@@ -39,10 +43,10 @@ export default function Products({ products }: { products: TProducts }) {
     <>
       <div className={styles.grid}>
         {products.map((product, index) => {
-          return <Product key={`${product.name.uk.replace(' ', '-').toLowerCase()}-${index}`} product={product} updateBasket={() => updateItem(product.name.uk)} />
+          return <Product key={`${product.name[locale].replace(' ', '-').toLowerCase()}-${index}`} product={product} updateBasket={() => updateItem(product.name[locale])} />
         })}
         {moreProducts?.map((product, index) => {
-          return <Product key={`${product.name.uk.replace(' ', '-').toLowerCase()}-${index}`} product={product} updateBasket={() => updateItem(product.name.uk)} />
+          return <Product key={`${product.name[locale].replace(' ', '-').toLowerCase()}-${index}`} product={product} updateBasket={() => updateItem(product.name[locale])} />
         })}
       </div>
       {loading && (
